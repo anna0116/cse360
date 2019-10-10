@@ -4,43 +4,56 @@
  * Class  : CSE 360 (Wednesday session)
  * Date   : 10-09-2019
  * File   : AddingMachine.java
- * Purpose: Initial version of AddingMachine with empty methods
+ * Purpose: Edited version of AddingMachine with functioning methods. It has methods to add 
+ *          and subtract values. It also keeps track of all performed operations,  which it returns
+ *          as a string. The clear function in it resets the total to a zero and clears the history.
  */
 
 package cse360assign2;
 
-public class AddingMachine {
+public class AddingMachine 
+{
 
 	//VARIABLE
 	private int total;
+	private String operationHistory = "0";	//String variable to keep track of all operations.
 	
 	//DEFAULT CONSTRUCTOR
-	public AddingMachine () {
+	public AddingMachine () 
+	{
 		total = 0;  // not needed - included for clarity
 	}
 	
 	//METHOD TO CALCULATE THE TOTAL
-	public int getTotal () {
-		return 0;
+	public int getTotal () 
+	{
+		return total;
 	}
 	
-	//METHOD TO COMPUTE THE SUM
-	public void add (int value) {
-		
+	//METHOD TO COMPUTE THE SUM AND KEEP TRACK OF ADDITION OPERATIONS
+	public void add (int value) 
+	{
+		total = total + value;
+		operationHistory = operationHistory + " + " + value;
 	}
 	
-	//METHOD TO SUBTRACT
-	public void subtract (int value) {
-		
+	//METHOD TO SUBTRACT AND KEEP TRACK OF ALL SUBTRACTION OPERATIONS
+	public void subtract (int value) 
+	{
+		total = total - value;
+		operationHistory = operationHistory + " - " + value;
 	}
 		
-	//METHOD TO CONVERT INTO A STRING
-	public String toString () {
-		return "";
+	//METHOD TO CONVERT INTO A STRING OF ALL OPERATIONS PERFORMED
+	public String toString () 
+	{
+		return operationHistory;
 	}
 
-	//METHOD TO CLEAR THE ENTRIES
-	public void clear() {
-	
+	//METHOD TO CLEAR THE HISTORY AND RESET THE TOTAL
+	public void clear() 
+	{
+		total = 0;
+		operationHistory = "";
 	}
 }
